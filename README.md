@@ -1,5 +1,3 @@
-# react-desenvolvendo-javascript
-
 <!-- :heavy_check_mark: -->
 <!-- :construction: -->
 
