@@ -5,16 +5,26 @@ const InputDeTexto = ({
   placeholder = "Texto do Placeholder",
   id = "id do elemento",
   obrigatorio = false,
-}) => (
-  <>
-    <label htmlFor={id}>{label}</label>
-    <input
-      id={id}
-      type="text"
-      placeholder={placeholder}
-      required={obrigatorio}
-    />
-  </>
-);
+  valor,
+  onInputDeTextoChange = null,
+}) => {
+  const handleInputDeTextoChange = (event) => {
+    onInputDeTextoChange(event.target.value);
+  };
+
+  return (
+    <>
+      <label htmlFor={id}>{label}</label>
+      <input
+        id={id}
+        type="text"
+        placeholder={placeholder}
+        required={obrigatorio}
+        value={valor}
+        onChange={handleInputDeTextoChange}
+      />
+    </>
+  );
+};
 
 export { InputDeTexto };

@@ -14,13 +14,24 @@ const ListaSuspensa = ({
     },
   ],
   obrigatorio = false,
+  valor = "valor padrão",
+  onListaChange = null,
 }) => {
+  const handleListaChange = (event) => {
+    onListaChange(event.target.value);
+  };
   return (
     <div>
       <label htmlFor={id}>{label}</label>
-      <select name="" id={id} required={obrigatorio}>
+      <select
+        name=""
+        id={id}
+        required={obrigatorio}
+        value={valor}
+        onChange={handleListaChange}
+      >
         {options.map((optionItem) => (
-          <option key={optionItem.value} value={optionItem.value}>
+          <option key={optionItem.description} value={optionItem.descriptiong}>
             {optionItem.description}
           </option>
         ))}
