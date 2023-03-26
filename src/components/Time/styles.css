@@ -1,0 +1,13 @@
+.time {
+  height: 43.8rem;
+  width: 100%;
+  text-align: center;
+  padding: 3.2rem 4rem 4rem;
+}
+
+.time h3 {
+  display: inline-block;
+  font-size: 3.2rem;
+  border-bottom: 4px solid;
+  padding-bottom: 1.4rem;
+}
