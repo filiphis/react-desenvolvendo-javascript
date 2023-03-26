@@ -4,42 +4,32 @@ import { InputDeTexto } from "../InputDeTexto";
 import { ListaSuspensa } from "../ListaSuspensa";
 import { Botao } from "../Botao";
 import { useState } from "react";
+import { getTimes } from "../../api/times";
 
-const Formulario = ({ title = "Descrição do formulário" }) => {
+const Formulario = ({
+  title = "Descrição do formulário",
+  onEnviarFormulario,
+}) => {
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
   const [time, setTime] = useState("");
 
-  const times = [
-    {
-      description: "Programação",
-    },
-    {
-      description: "Front-end",
-    },
-    {
-      description: "Data Science",
-    },
-    {
-      description: "Dev Ops",
-    },
-    {
-      description: "Ux e Design",
-    },
-  ];
+  const times = getTimes();
 
-  const enviarFormulario = (event) => {
+  const handleEnviarFormulario = (event) => {
     event.preventDefault();
-    console.log("Formulário enviado!", nome, cargo, imagem, time);
-  };
-
-  const handleInputValue = (valor) => {
-    setNome(valor);
+    const colaborador = {
+      nome,
+      cargo,
+      imagem,
+      time,
+    };
+    onEnviarFormulario(colaborador);
   };
 
   return (
-    <form onSubmit={enviarFormulario}>
+    <form onSubmit={handleEnviarFormulario}>
       <h2>{title}</h2>
       <InputDeTexto
         id="nome"
