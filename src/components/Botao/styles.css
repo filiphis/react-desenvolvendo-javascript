@@ -1,0 +1,17 @@
+button {
+  margin-top: 4rem;
+  width: 16.7rem;
+  height: 8rem;
+  background: #6278f7;
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: filter 400ms, color 400ms;
+}
+
+button:hover {
+  filter: brightness(90%);
+  color: #95ffd4;
+}
