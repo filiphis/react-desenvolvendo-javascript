@@ -16,6 +16,7 @@ const Time = ({ time, colaboradores }) => {
               nome={colaborador.nome}
               imagem={colaborador.imagem}
               cargo={colaborador.cargo}
+              corPrimaria={corPrimaria}
             />
           ))}
         </div>

@@ -6,6 +6,7 @@ import { Time } from "./components/Time";
 import { Title } from "./components/Title";
 import { getTimes } from "./api/times";
 import { serviceGetNewID } from "./services/serviceGetNewID";
+import { Rodape } from "./components/Rodape";
 
 function App() {
   const [colaboradores, setColaboradores] = useState([]);
@@ -18,11 +19,11 @@ function App() {
   };
 
   return (
-    <>
+    <div className="container">
       <Header />
       <Formulario times={times} onEnviarFormulario={cadastraColaboradores} />
 
-      <Title>Minha Organização:</Title>
+      {colaboradores.length > 0 && <Title>Minha Organização:</Title>}
 
       {times.map(({ description, corPrimaria, corSecundaria }) => (
         <Time
@@ -38,7 +39,9 @@ function App() {
           )}
         />
       ))}
-    </>
+
+      <Rodape />
+    </div>
   );
 }
 
