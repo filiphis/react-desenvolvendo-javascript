@@ -22,7 +22,7 @@ function App() {
       <Header />
       <Formulario times={times} onEnviarFormulario={cadastraColaboradores} />
 
-      <Title>Minha Organização:</Title>
+      {colaboradores.length > 0 && <Title>Minha Organização:</Title>}
 
       {times.map(({ description, corPrimaria, corSecundaria }) => (
         <Time
