@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Time } from "./components/Time";
 import { Title } from "./components/Title";
 import { getTimes } from "./api/times";
+import { serviceGetNewID } from "./services/serviceGetNewID";
 
 function App() {
   const [colaboradores, setColaboradores] = useState([]);
@@ -18,7 +19,6 @@ function App() {
 
   return (
     <>
-      {console.log("Colaboradores:", colaboradores)}
       <Header />
       <Formulario times={times} onEnviarFormulario={cadastraColaboradores} />
 
@@ -26,11 +26,16 @@ function App() {
 
       {times.map(({ description, corPrimaria, corSecundaria }) => (
         <Time
+          key={serviceGetNewID()}
           time={{
             description,
             corPrimaria,
             corSecundaria,
+            colaboradores,
           }}
+          colaboradores={colaboradores.filter(
+            (colaborador) => colaborador.time === description
+          )}
         />
       ))}
     </>

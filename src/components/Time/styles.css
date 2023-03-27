@@ -1,5 +1,5 @@
 .time {
-  height: 43.8rem;
+  min-height: 43.8rem;
   width: 100%;
   text-align: center;
   padding: 3.2rem 4rem 4rem;
@@ -10,4 +10,11 @@
   font-size: 3.2rem;
   border-bottom: 4px solid;
   padding-bottom: 1.4rem;
+  margin-bottom: 4.2rem;
+}
+
+.time .listaColaboradores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
 }

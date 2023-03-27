@@ -24,6 +24,12 @@ const Formulario = ({
       time,
     };
     onEnviarFormulario(colaborador);
+
+    setNome("");
+    setCargo("");
+    setImagem("");
+    setTime("");
+    // event.target.reset();
   };
 
   return (
@@ -35,7 +41,7 @@ const Formulario = ({
         placeholder="Digite seu nome"
         obrigatorio
         onInputDeTextoChange={(valor) => setNome(valor)}
-        value={nome}
+        valor={nome}
       />
       <InputDeTexto
         id="cargo"
@@ -43,15 +49,15 @@ const Formulario = ({
         placeholder="Digite seu cargo"
         obrigatorio
         onInputDeTextoChange={(valor) => setCargo(valor)}
-        value={cargo}
+        valor={cargo}
       />
       <InputDeTexto
         id="imagem"
         label="Imagem"
-        placeholder="Informe o endereço da imagem"
+        placeholder="https://github.com/USUARIOGIT.png"
         obrigatorio
         onInputDeTextoChange={(valor) => setImagem(valor)}
-        value={imagem}
+        valor={imagem}
       />
       <ListaSuspensa
         label="Time"
