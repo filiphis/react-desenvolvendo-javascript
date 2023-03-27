@@ -54,7 +54,7 @@ const Formulario = ({
       <InputDeTexto
         id="imagem"
         label="Imagem"
-        placeholder="URL de uma imagem: https://github.com/USUARIOGIT.png"
+        placeholder="https://github.com/USUARIOGIT.png"
         obrigatorio
         onInputDeTextoChange={(valor) => setImagem(valor)}
         valor={imagem}

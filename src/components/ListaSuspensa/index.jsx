@@ -30,9 +30,6 @@ const ListaSuspensa = ({
         value={valor}
         onChange={handleListaChange}
       >
-        <option value="" disabled>
-          Selecione o time
-        </option>
         {options.map((optionItem) => (
           <option key={optionItem.description} value={optionItem.descriptiong}>
             {optionItem.description}
