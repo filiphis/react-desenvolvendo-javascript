@@ -1,6 +1,6 @@
 import "./styles.css";
 
-const Colaborador = ({ imagem, nome, cargo }) => {
+const Colaborador = ({ imagem, nome, cargo, corPrimaria }) => {
   const imageNotLoad = (event) => {
     const defaultImage =
       "https://cdn-icons-png.flaticon.com/512/149/149071.png";
@@ -8,7 +8,7 @@ const Colaborador = ({ imagem, nome, cargo }) => {
   };
   return (
     <div className="colaborador">
-      <div className="cabecalho">
+      <div className="cabecalho" style={{ backgroundColor: corPrimaria }}>
         <img src={imagem} alt={nome} onError={imageNotLoad} />
       </div>
       <div className="rodape">
