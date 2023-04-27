@@ -4,17 +4,26 @@ import { Formulario } from "./components/Formulario";
 import { useState } from "react";
 import { Time } from "./components/Time";
 import { Title } from "./components/Title";
-import { getTimes } from "./api/times";
+import { getTimes, getColaboradores } from "./api/times";
 import { serviceGetNewID } from "./services/serviceGetNewID";
 
-function App() {
-  const [colaboradores, setColaboradores] = useState([]);
+const times = getTimes();
+const allColaboradores = getColaboradores();
 
-  const times = getTimes();
+function App() {
+  const [colaboradores, setColaboradores] = useState(allColaboradores);
 
   const cadastraColaboradores = (colaborador) => {
     const newColaboradores = [...colaboradores, colaborador];
     setColaboradores(newColaboradores);
+  };
+
+  const removeColaborador = (id) => {
+    const novosColaboradores = colaboradores.filter(
+      (colaborador) => colaborador.id != id
+    );
+
+    setColaboradores(novosColaboradores);
   };
 
   return (
@@ -24,9 +33,9 @@ function App() {
 
       {colaboradores.length > 0 && <Title>Minha Organização:</Title>}
 
-      {times.map(({ description, corPrimaria, corSecundaria }) => (
+      {times.map(({ id, description, corPrimaria, corSecundaria }) => (
         <Time
-          key={serviceGetNewID()}
+          key={id}
           time={{
             description,
             corPrimaria,
@@ -36,6 +45,7 @@ function App() {
           colaboradores={colaboradores.filter(
             (colaborador) => colaborador.time === description
           )}
+          onRemoveColaborador={removeColaborador}
         />
       ))}
     </>

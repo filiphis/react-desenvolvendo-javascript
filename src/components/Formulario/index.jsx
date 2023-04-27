@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 import "./styles.css";
 
 import { InputDeTexto } from "../InputDeTexto";
@@ -18,6 +20,7 @@ const Formulario = ({
   const handleEnviarFormulario = (event) => {
     event.preventDefault();
     const colaborador = {
+      id: uuidv4(),
       nome,
       cargo,
       imagem,
@@ -29,7 +32,6 @@ const Formulario = ({
     setCargo("");
     setImagem("");
     setTime("");
-    // event.target.reset();
   };
 
   return (

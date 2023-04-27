@@ -1,9 +1,9 @@
-import { serviceGetNewID } from "../../services/serviceGetNewID";
 import { Colaborador } from "../Colaborador";
 import "./styles.css";
 
-const Time = ({ time, colaboradores }) => {
+const Time = ({ time, colaboradores, onRemoveColaborador }) => {
   const { description, corPrimaria, corSecundaria } = time;
+
   return (
     colaboradores.length > 0 && (
       <section className="time" style={{ backgroundColor: corSecundaria }}>
@@ -12,11 +12,13 @@ const Time = ({ time, colaboradores }) => {
         <div className="listaColaboradores">
           {colaboradores.map((colaborador) => (
             <Colaborador
-              key={serviceGetNewID()}
+              key={colaborador.id}
+              id={colaborador.id}
               nome={colaborador.nome}
               imagem={colaborador.imagem}
               cargo={colaborador.cargo}
               corPrimaria={corPrimaria}
+              onRemoveColaborador={onRemoveColaborador}
             />
           ))}
         </div>
