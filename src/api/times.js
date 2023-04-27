@@ -57,6 +57,7 @@ const getColaboradores = () => {
       cargo: "Desenvolvedor Front-end Jr.",
       imagem: "",
       time: "Front-end",
+      ehFavorito: true,
     },
   ];
 

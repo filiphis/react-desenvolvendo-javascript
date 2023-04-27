@@ -1,5 +1,5 @@
 import "./styles.css";
-import { AiFillCloseCircle } from "react-icons/ai";
+import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const Colaborador = ({
   id,
@@ -8,6 +8,8 @@ const Colaborador = ({
   cargo,
   corPrimaria,
   onRemoveColaborador,
+  onEhFavorito,
+  ehFavorito,
 }) => {
   const imageNotLoad = (event) => {
     const defaultImage =
@@ -17,6 +19,10 @@ const Colaborador = ({
 
   function handleClickRemoveColaborador() {
     onRemoveColaborador(id);
+  }
+
+  function handleEhFavorito() {
+    onEhFavorito(id);
   }
   return (
     <div className="colaborador">
@@ -32,6 +38,13 @@ const Colaborador = ({
       <div className="rodape">
         <h4>{nome}</h4>
         <h5>{cargo}</h5>
+        <div className="" onClick={handleEhFavorito}>
+          {ehFavorito ? (
+            <AiFillHeart size={25} color="red" />
+          ) : (
+            <AiOutlineHeart size={25} />
+          )}
+        </div>
       </div>
     </div>
   );

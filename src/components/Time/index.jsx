@@ -1,7 +1,7 @@
 import { Colaborador } from "../Colaborador";
 import "./styles.css";
 
-const Time = ({ time, colaboradores, onRemoveColaborador }) => {
+const Time = ({ time, colaboradores, onRemoveColaborador, onEhFavorito }) => {
   const { description, corPrimaria, corSecundaria } = time;
 
   return (
@@ -17,8 +17,10 @@ const Time = ({ time, colaboradores, onRemoveColaborador }) => {
               nome={colaborador.nome}
               imagem={colaborador.imagem}
               cargo={colaborador.cargo}
-              corPrimaria={corPrimaria}
+              onEhFavorito={onEhFavorito}
+              ehFavorito={colaborador.ehFavorito}
               onRemoveColaborador={onRemoveColaborador}
+              corPrimaria={corPrimaria}
             />
           ))}
         </div>

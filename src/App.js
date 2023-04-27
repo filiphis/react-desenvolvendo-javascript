@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Time } from "./components/Time";
 import { Title } from "./components/Title";
 import { getTimes, getColaboradores } from "./api/times";
-import { serviceGetNewID } from "./services/serviceGetNewID";
 
 const times = getTimes();
 const allColaboradores = getColaboradores();
@@ -20,10 +19,25 @@ function App() {
 
   const removeColaborador = (id) => {
     const novosColaboradores = colaboradores.filter(
-      (colaborador) => colaborador.id != id
+      (colaborador) => colaborador.id !== id
     );
 
     setColaboradores(novosColaboradores);
+  };
+
+  const toggleFavorito = (id) => {
+    const newColaboradores = colaboradores.map((colaborador) => {
+      if (colaborador.id === id) {
+        console.log("colaborador: ", colaborador);
+        return {
+          ...colaborador,
+          ehFavorito: !colaborador.ehFavorito,
+        };
+      }
+      return colaborador;
+    });
+
+    setColaboradores(newColaboradores);
   };
 
   return (
@@ -46,6 +60,7 @@ function App() {
             (colaborador) => colaborador.time === description
           )}
           onRemoveColaborador={removeColaborador}
+          onEhFavorito={toggleFavorito}
         />
       ))}
     </>
