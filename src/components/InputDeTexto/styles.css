@@ -6,7 +6,7 @@ label {
   margin-top: 2.4rem;
 }
 
-input {
+.input__text {
   width: 100%;
   margin-top: 0.8rem;
   padding: 3rem 2rem;
@@ -15,7 +15,7 @@ input {
   border: none;
 }
 
-input::placeholder {
+.input__text::placeholder {
   color: #a4a4a4;
   font-size: 1.6rem;
 }

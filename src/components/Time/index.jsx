@@ -1,13 +1,36 @@
+import hexToRgba from "hex-to-rgba";
+
 import { Colaborador } from "../Colaborador";
 import "./styles.css";
 
-const Time = ({ time, colaboradores, onRemoveColaborador, onEhFavorito }) => {
-  const { description, corPrimaria, corSecundaria } = time;
+const Time = ({
+  time,
+  colaboradores,
+  onRemoveColaborador,
+  onEhFavorito,
+  onAlteraCor,
+}) => {
+  const { id, description, cor } = time;
+
+  function handleCorChange(event) {
+    onAlteraCor(id, event.target.value);
+  }
 
   return (
     colaboradores.length > 0 && (
-      <section className="time" style={{ backgroundColor: corSecundaria }}>
-        <h3 style={{ color: corPrimaria }}>{description}</h3>
+      <section
+        className="time"
+        style={{ backgroundColor: hexToRgba(cor, "0.2") }}
+      >
+        <div className="time__inputContainer">
+          <input
+            className="time__inputColor"
+            type="color"
+            value={cor}
+            onChange={handleCorChange}
+          />
+        </div>
+        <h3 style={{ color: cor }}>{description}</h3>
 
         <div className="listaColaboradores">
           {colaboradores.map((colaborador) => (
@@ -20,7 +43,7 @@ const Time = ({ time, colaboradores, onRemoveColaborador, onEhFavorito }) => {
               onEhFavorito={onEhFavorito}
               ehFavorito={colaborador.ehFavorito}
               onRemoveColaborador={onRemoveColaborador}
-              corPrimaria={corPrimaria}
+              cor={cor}
             />
           ))}
         </div>

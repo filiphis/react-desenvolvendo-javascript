@@ -6,11 +6,12 @@ import { Time } from "./components/Time";
 import { Title } from "./components/Title";
 import { getTimes, getColaboradores } from "./api/times";
 
-const times = getTimes();
+const allTimes = getTimes();
 const allColaboradores = getColaboradores();
 
 function App() {
   const [colaboradores, setColaboradores] = useState(allColaboradores);
+  const [times, setTimes] = useState(allTimes);
 
   const cadastraColaboradores = (colaborador) => {
     const newColaboradores = [...colaboradores, colaborador];
@@ -40,6 +41,20 @@ function App() {
     setColaboradores(newColaboradores);
   };
 
+  const alteraCor = (timeID, novaCor) => {
+    const newTimes = times.map((time) => {
+      if (timeID === time.id) {
+        return {
+          ...time,
+          cor: novaCor,
+        };
+      }
+      return time;
+    });
+
+    setTimes(newTimes);
+  };
+
   return (
     <>
       <Header />
@@ -47,15 +62,16 @@ function App() {
 
       {colaboradores.length > 0 && <Title>Minha Organização:</Title>}
 
-      {times.map(({ id, description, corPrimaria, corSecundaria }) => (
+      {times.map(({ id, description, cor }) => (
         <Time
           key={id}
           time={{
+            id,
             description,
-            corPrimaria,
-            corSecundaria,
+            cor,
             colaboradores,
           }}
+          onAlteraCor={alteraCor}
           colaboradores={colaboradores.filter(
             (colaborador) => colaborador.time === description
           )}

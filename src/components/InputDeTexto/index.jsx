@@ -17,6 +17,7 @@ const InputDeTexto = ({
       <label htmlFor={id}>{label}</label>
       <input
         id={id}
+        className="input__text"
         type="text"
         placeholder={placeholder}
         required={obrigatorio}

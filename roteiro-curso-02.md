@@ -11,4 +11,4 @@
 - [] Criar funcionalidade para cadastrar um novo time.
   - [] Criar um novo form ao lado do de colaboradores.
   - [] O time deve ter uma cor.
-- [] Criando a funcionalidade de favoritar.
+- [x] Criando a funcionalidade de favoritar.

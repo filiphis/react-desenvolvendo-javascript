@@ -6,7 +6,7 @@ const Colaborador = ({
   imagem,
   nome,
   cargo,
-  corPrimaria,
+  cor,
   onRemoveColaborador,
   onEhFavorito,
   ehFavorito,
@@ -32,17 +32,21 @@ const Colaborador = ({
       >
         <AiFillCloseCircle size={30} />
       </div>
-      <div className="cabecalho" style={{ backgroundColor: corPrimaria }}>
+      <div className="cabecalho" style={{ backgroundColor: cor }}>
         <img src={imagem} alt={nome} onError={imageNotLoad} />
       </div>
       <div className="rodape">
         <h4>{nome}</h4>
         <h5>{cargo}</h5>
-        <div className="" onClick={handleEhFavorito}>
+        <div onClick={handleEhFavorito}>
           {ehFavorito ? (
-            <AiFillHeart size={25} color="red" />
+            <AiFillHeart
+              className="colaborador__favorito"
+              size={25}
+              color="red"
+            />
           ) : (
-            <AiOutlineHeart size={25} />
+            <AiOutlineHeart className="colaborador__favorito" size={25} />
           )}
         </div>
       </div>
