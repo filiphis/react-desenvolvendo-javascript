@@ -2,13 +2,13 @@ import { v4 as uuidv4 } from "uuid";
 
 import "./styles.css";
 
-import { InputDeTexto } from "../InputDeTexto";
+import { Input } from "../Input";
 import { ListaSuspensa } from "../ListaSuspensa";
 import { Botao } from "../Botao";
 import { useState } from "react";
 
 const Formulario = ({
-  title = "Descrição do formulário",
+  title = "Cadastro de Colaboradores",
   onEnviarFormulario,
   times,
 }) => {
@@ -37,28 +37,28 @@ const Formulario = ({
   return (
     <form onSubmit={handleEnviarFormulario}>
       <h2>{title}</h2>
-      <InputDeTexto
+      <Input
         id="nome"
         label="Nome"
         placeholder="Digite seu nome"
         obrigatorio
-        onInputDeTextoChange={(valor) => setNome(valor)}
+        onInputChange={(valor) => setNome(valor)}
         valor={nome}
       />
-      <InputDeTexto
+      <Input
         id="cargo"
         label="Cargo"
         placeholder="Digite seu cargo"
         obrigatorio
-        onInputDeTextoChange={(valor) => setCargo(valor)}
+        onInputChange={(valor) => setCargo(valor)}
         valor={cargo}
       />
-      <InputDeTexto
+      <Input
         id="imagem"
         label="Imagem"
         placeholder="https://github.com/USUARIOGIT.png"
         obrigatorio
-        onInputDeTextoChange={(valor) => setImagem(valor)}
+        onInputChange={(valor) => setImagem(valor)}
         valor={imagem}
       />
       <ListaSuspensa

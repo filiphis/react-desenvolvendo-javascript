@@ -3,7 +3,10 @@ label {
   font-size: 1.8rem;
   font-weight: bold;
   display: inline-block;
-  margin-top: 2.4rem;
+  margin-top: 1.2rem;
+}
+label.label-color {
+  margin-top: 0px !important;
 }
 
 .input__text {
@@ -15,7 +18,21 @@ label {
   border: none;
 }
 
+.input__color {
+  background-color: #ffffff;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+  border: none;
+}
+
 .input__text::placeholder {
   color: #a4a4a4;
   font-size: 1.6rem;
+}
+
+.input__flex {
+  margin-top: 2rem;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  gap: 20px;
 }

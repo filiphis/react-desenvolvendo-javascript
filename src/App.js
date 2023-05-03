@@ -1,6 +1,7 @@
 import "./App.css";
 import { Header } from "./components/Header";
 import { Formulario } from "./components/Formulario";
+import { FormularioTimes } from "./components/FormularioTimes";
 import { useState } from "react";
 import { Time } from "./components/Time";
 import { Title } from "./components/Title";
@@ -58,6 +59,9 @@ function App() {
   return (
     <>
       <Header />
+      <FormularioTimes
+        onEnviarFormulario={() => console.log("Formulario times enviado")}
+      />
       <Formulario times={times} onEnviarFormulario={cadastraColaboradores} />
 
       {colaboradores.length > 0 && <Title>Minha Organização:</Title>}
