@@ -8,7 +8,7 @@
 - [x] Criar a funcionalidade para alterar a cor do time.
   - [x] Utilizar a lib hex-to-rgba para converter a cor do input.
 - [x] Configurar os id's com a lib **uuid**.
-- [] Criar funcionalidade para cadastrar um novo time.
-  - [] Criar um novo form ao lado do de colaboradores.
-  - [] O time deve ter uma cor.
+- [x] Criar funcionalidade para cadastrar um novo time.
+  - [x] Criar um novo form ao lado do de colaboradores.
+  - [x] O time deve ter uma cor.
 - [x] Criando a funcionalidade de favoritar.
