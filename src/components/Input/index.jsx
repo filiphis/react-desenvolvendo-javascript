@@ -16,7 +16,7 @@ const Input = ({
   return (
     <>
       <div className={type === "color" ? "input__flex" : ""}>
-        <label className={type === "color" && "label-color"} htmlFor={id}>
+        <label className={type === "color" ? "label-color" : ""} htmlFor={id}>
           {label}
         </label>
         <input

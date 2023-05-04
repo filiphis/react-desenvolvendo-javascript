@@ -15,8 +15,8 @@ function App() {
   const [times, setTimes] = useState(allTimes);
 
   const cadastraColaboradores = (colaborador) => {
-    const newColaboradores = [...colaboradores, colaborador];
-    setColaboradores(newColaboradores);
+    const novosColaboradores = [...colaboradores, colaborador];
+    setColaboradores(novosColaboradores);
   };
 
   const removeColaborador = (id) => {
@@ -56,12 +56,15 @@ function App() {
     setTimes(newTimes);
   };
 
+  const cadastraTime = (time) => {
+    const novosTimes = [...times, time];
+    setTimes(novosTimes);
+  };
+
   return (
     <>
       <Header />
-      <FormularioTimes
-        onEnviarFormulario={() => console.log("Formulario times enviado")}
-      />
+      <FormularioTimes onEnviarFormulario={cadastraTime} />
       <Formulario times={times} onEnviarFormulario={cadastraColaboradores} />
 
       {colaboradores.length > 0 && <Title>Minha Organização:</Title>}

@@ -11,7 +11,7 @@ const FormularioTimes = ({
   onEnviarFormulario,
 }) => {
   const [description, setDescription] = useState("");
-  const [cor, setCor] = useState("");
+  const [cor, setCor] = useState("#ffffff");
 
   const handleEnviarFormulario = (event) => {
     event.preventDefault();
@@ -23,7 +23,7 @@ const FormularioTimes = ({
     onEnviarFormulario(time);
 
     setDescription("");
-    setCor("");
+    setCor("#ffffff");
   };
 
   return (
